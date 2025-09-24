@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ShopEase | Cart</title>
+  <link rel="stylesheet"href="styles.css">
+</head>
+<body>
+  <h1>Your Cart</h1>
+  <div id="cart-items">
+  </div>
+  <h2>Total: $<span id="total-price">0.00</span></h2>
+  <button onclick="proceedToCheckout()">Proceed to Checkout</button>
+
+  <script>
+    let cart = [
+      { name: "Product1", price: 29.99, quantity: 2 },
+      { name: "Product2", price: 49.99, quantity: 1 }
+    ];
+
+    function renderCart() {
+      const container = document.getElementById('cart-items');
+      let total = 0;
+      container.innerHTML = '';
+      cart.forEach(item => {
+        total += item.price * item.quantity;
+        container.innerHTML += `
+          <div class="cart-item">
+            <h3>${item.name}</h3>
+            <p>Price: $${item.price}</p>
+            <p>Quantity: ${item.quantity}</p>
+          </div>
+        `;
+      });
+      document.getElementById('total-price').textContent = total.toFixed(2);
+    }
+
+    function proceedToCheckout() {
+      alert('Checkout functionality coming soon!');
+    }
+
+    renderCart();
+  </script>
+</body>
+</html>

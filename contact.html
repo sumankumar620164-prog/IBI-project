@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ShopEase | Contact</title>
+  <link rel="stylesheet"href="styles.css">
+</head>
+<body>
+  <h1>Contact Us</h1>
+  <div class="ctus">
+  <form id="contactForm">
+    <label>Name:<input type="text" id="name" required></label>
+    <label>Email:<input type="email" id="email" required></label>
+    <label>Subject:<input type="text" id="subject" required></label>
+    <label>Message:<textarea id="message" required></textarea></label>
+    <button type="submit">Send Message</button>
+  </form>
+   </div>
+  <script>
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      let name = document.getElementById('name').value.trim();
+      let email = document.getElementById('email').value.trim();
+      let subject = document.getElementById('subject').value.trim();
+      let message = document.getElementById('message').value.trim();
+
+      if (!name || !email || !subject || !message) {
+        alert('Please fill in all fields.');
+        return;
+      }
+      if (!email.includes('@')) {
+        alert('Please enter a valid email.');
+        return;
+      }
+
+      alert('Message sent successfully!');
+      this.reset();
+    });
+  </script>
+</body>
+</html>
